@@ -1,10 +1,12 @@
 # PHP Template App
 
-After I needed a simple NGINX, PHP and MySQL Docker compose file I thought it is easier to put something up fro quick reference next time.
+After I needed a simple NGINX, PHP and MySQL Docker compose file I thought it is easier to put something up for quick reference for next time.
 
 This is a great template to setup the boilerplate for a development environment. It is not complete but enough to get you started to try out some quick idea without actually installing anything on your system other than Docker.
 
 This setup pulls in the NGINX, PHP and MySQL. The PHP image has the mysqli and pdo_mysql extensions enabled besides the default.
+
+To get this running just issue a `docker-compose up` in the folder. Then define the host `project.localhost` that points to 127.0.0.1 and voila, you will be presented with a **index.php** from `website/public_html/index.php` file.
 
 # Usage
 
