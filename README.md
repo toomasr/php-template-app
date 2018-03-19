@@ -12,12 +12,12 @@ To get this running just issue a `docker-compose up` in the folder. Then define 
 
 I just clone or download the repository and use it as a basis whenever I need to do some PHP prototyping (happens like once a year for me).
 
-It runs everything on `project.localhost` URL so be sure to define that in your *hosts* file. If you want to tweak that then edit the *src/vhost.conf* file.
+It runs everything on `project.localhost` URL so be sure to define that in your **hosts** file. If you want to tweak that then edit the **src/vhost.conf** file.
 
-Everything under *website/public_html* is meant to be the *root* for the web server. The *website/lib* is left out of the served three.
+Everything under **website/public_html** is meant to be the **root** for the web server. The **website/lib** is left out of the served three.
 
-The app comes with a *index.php* which just displays the [phpinfo()](http://php.net/manual/en/function.phpinfo.php).
+The app comes with a **index.php** which just displays the [phpinfo()](http://php.net/manual/en/function.phpinfo.php).
 
-MySql creates all its data under *db_data* folder. It also tries to load your dump files from *src/db* folder.
+MySql creates all its data under **db_data** folder. It also tries to load your dump files from **src/db** folder.
 
-MySQL is set up with the root password being *mysql_root_password*. Username *mysql_username*, password being *mysql_password* and the created database *database_name*.
+MySQL is set up with the root password being **mysql_root_password**. Username **mysql_username**, password being **mysql_password** and the created database **database_name**.
