@@ -1,0 +1,32 @@
+web:
+  image: nginx
+  ports:
+    - "80:80"
+  volumes:
+    - ./src/vhost.conf:/etc/nginx/conf.d/vhost.conf
+    - ./website/public_html:/var/www/html
+  links:
+    - php
+
+php:
+    image: toomasr:php7-with-stuff
+    volumes:
+      - ./website/public_html:/var/www/html
+      - ./website/lib:/var/www/lib
+    links:
+      - mysql
+
+mysql:
+    image: mysql:5.7
+    volumes:
+      - ./src/db:/docker-entrypoint-initdb.d
+      - ./db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "imrandomstringyay"
+      MYSQL_USER: "mysql_username"
+      MYSQL_PASSWORD: "mysql_password"
+      MYSQL_DATABASE: "database_name"
+
