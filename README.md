@@ -4,7 +4,7 @@ After I needed a simple NGINX, PHP and MySQL Docker compose file I thought it is
 
 This is a great template to setup the boilerplate for a development environment. It is not complete but enough to get you started to try out some quick idea without actually installing anything on your system other than Docker.
 
-This setup pulls in the NGINX, PHP and MySQL. The PHP image has the mysqli and pdo_mysql extensions enabled besides the default.
+This setup pulls in the NGINX, PHP and MySQL. The PHP image has the mysqli and pdo_mysql extensions enabled besides the default and are from my [PHP7 With Stuff](https://github.com/toomasr/php7-with-stuff) project.
 
 To get this running just issue a `docker-compose up` in the folder. Then define the host `project.localhost` that points to 127.0.0.1 and voila, you will be presented with a **index.php** from `website/public_html/index.php` file.
 

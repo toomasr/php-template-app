@@ -1,25 +1,45 @@
+# This is the 'web' node running NGINX
 web:
   image: nginx
   ports:
     - "80:80"
   volumes:
+    # our NGINX configuration file is under ./src/ in this project
+    # and we'll map this to the location NGINX is looking for it in
+    # the container
     - ./src/vhost.conf:/etc/nginx/conf.d/vhost.conf
+    # We'll also map the public_html to location we reference
+    # as the document root for the NGINX
     - ./website/public_html:/var/www/html
   links:
+    # This node needs to see the PHP node to process the PHP
+    # files. See the vhost.conf for more details how it is referred
     - php
 
+# This is the PHP node processing PHP files
 php:
+    # This is a simple image based on php:7-fpm package
+    # You can see full configuration at 
+    # https://github.com/toomasr/php-template-app
     image: toomasr:php7-with-stuff
     volumes:
+      # We'll make sure PHP sees the files served to the world
       - ./website/public_html:/var/www/html
-      - ./website/lib:/var/www/lib
+      # And also the files that are not - great location for include and lib files
+      - ./website/nowww:/var/www/nowww
     links:
+      # We'll also link to our database. This is the name of the host you connect to!
       - mysql
 
+# This is the MySQL node for the database
 mysql:
     image: mysql:5.7
     volumes:
+      # Here you can do an initial import for files. Place a dump.sql
+      # under ./src/db and it will be imported on first run
       - ./src/db:/docker-entrypoint-initdb.d
+      # This is the location where MySQL will store all the configuration
+      # and data files. Wipe this contents to get a clean slate.
       - ./db_data:/var/lib/mysql
     restart: always
     ports:
