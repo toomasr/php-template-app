@@ -7,7 +7,7 @@ web:
     # our NGINX configuration file is under ./src/ in this project
     # and we'll map this to the location NGINX is looking for it in
     # the container
-    - ./src/vhost.conf:/etc/nginx/conf.d/vhost.conf
+    - ./src/vhost.conf:/etc/nginx/conf.d/default.conf
     # We'll also map the public_html to location we reference
     # as the document root for the NGINX
     - ./website/public_html:/var/www/html
