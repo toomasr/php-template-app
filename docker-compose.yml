@@ -11,6 +11,8 @@ web:
     # We'll also map the public_html to location we reference
     # as the document root for the NGINX
     - ./website/public_html:/var/www/html
+    # And also the log files for easy tailing
+    - ./logs/nginx:/var/log/nginx
   links:
     # This node needs to see the PHP node to process the PHP
     # files. See the vhost.conf for more details how it is referred
