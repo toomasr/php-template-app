@@ -21,7 +21,7 @@ web:
 # This is the PHP node processing PHP files
 php:
     # This is a simple image based on php:7-fpm package
-    # You can see full configuration at
+    # You can see the full configuration at
     # https://github.com/toomasr/php-template-app
     image: toomasr/php7-with-stuff
     volumes:
@@ -51,4 +51,3 @@ mysql:
       MYSQL_USER: "mysql_username"
       MYSQL_PASSWORD: "mysql_password"
       MYSQL_DATABASE: "database_name"
-
