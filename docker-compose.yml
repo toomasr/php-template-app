@@ -7,10 +7,12 @@ web:
     # our NGINX configuration file is under ./src/ in this project
     # and we'll map this to the location NGINX is looking for it in
     # the container
-    - ./src/vhost.conf:/etc/nginx/conf.d/vhost.conf
+    - ./src/vhost.conf:/etc/nginx/conf.d/default.conf
     # We'll also map the public_html to location we reference
     # as the document root for the NGINX
     - ./website/public_html:/var/www/html
+    # And also the log files for easy tailing
+    - ./logs/nginx:/var/log/nginx
   links:
     # This node needs to see the PHP node to process the PHP
     # files. See the vhost.conf for more details how it is referred
@@ -19,7 +21,7 @@ web:
 # This is the PHP node processing PHP files
 php:
     # This is a simple image based on php:7-fpm package
-    # You can see full configuration at
+    # You can see the full configuration at
     # https://github.com/toomasr/php-template-app
     image: toomasr/php7-with-stuff
     volumes:
@@ -49,3 +51,4 @@ mysql:
       MYSQL_USER: "mysql_username"
       MYSQL_PASSWORD: "mysql_password"
       MYSQL_DATABASE: "database_name"
+
