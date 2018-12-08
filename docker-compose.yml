@@ -33,7 +33,7 @@ php:
 
 # This is the MySQL node for the database
 mysql:
-    image: mysql:5.7
+    image: mysql:8.0.13
     volumes:
       # Here you can do an initial import for files. Place a dump.sql
       # under ./src/db and it will be imported on first run
@@ -49,4 +49,3 @@ mysql:
       MYSQL_USER: "mysql_username"
       MYSQL_PASSWORD: "mysql_password"
       MYSQL_DATABASE: "database_name"
-
