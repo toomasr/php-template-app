@@ -19,9 +19,9 @@ web:
 # This is the PHP node processing PHP files
 php:
     # This is a simple image based on php:7-fpm package
-    # You can see full configuration at 
+    # You can see full configuration at
     # https://github.com/toomasr/php-template-app
-    image: toomasr:php7-with-stuff
+    image: toomasr/php7-with-stuff
     volumes:
       # We'll make sure PHP sees the files served to the world
       - ./website/public_html:/var/www/html
